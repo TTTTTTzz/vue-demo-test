@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // 导入自己编写的组件
 import HelloWorld from '@/components/HelloWorld'
-import test from '@/components/test'
+import Login from '@/components/Login' // import 组件文件名 from '组件文件路径'
 Vue.use(Router)
 
 export default new Router({
@@ -14,8 +14,8 @@ export default new Router({
     },
     {
       path: '/login',
-      name: 'test1',
-      component: test
+      name: 'login',
+      component: Login
     },
     {
       path: '/error',
