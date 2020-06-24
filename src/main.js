@@ -6,6 +6,8 @@ import router from './router'
 // 引入element ui
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+// 引用store
+import store from './store'
 
 // 设置反向代理，前端请求默认发送到 http://localhost:8443/api // todo ？？？？？？
 var axios = require('axios')
@@ -16,6 +18,21 @@ Vue.config.productionTip = false
 
 // element ui
 Vue.use(ElementUI)
+// todo 钩子函数？参数什么意思？
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireAuth) {
+    if (store.state.user.username) {
+      next()
+    } else {
+      next({
+        path: 'login',
+        query: {redirect: to.fullPath}
+      })
+    }
+  } else {
+    next()
+  }
+})
 
 // eslint-disable-next-line no-new
 new Vue({
@@ -23,6 +40,8 @@ new Vue({
   // element ui
   render: h => h(App),
   router,
+  // store
+  store,
   components: { App },
   template: '<App/>'
 })

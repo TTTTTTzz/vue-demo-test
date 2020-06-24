@@ -22,17 +22,22 @@ export default {
   },
   methods: {
     login () {
+      var _this = this
       this.$axios.post('/login', {
         username: this.user.username,
         password: this.user.password
       }).then(successResponse => {
         if (successResponse.data.code === 200) {
-          this.$router.replace({path: '/hello'})
+          // this.$router.replace({path: '/hello'})
+          _this.$store.commit('login', _this.user)
+          // todo the difference between _this and this? which they refer to?
+          var path = this.$route.query.redirect
+          this.$router.replace(({path: path === '/' || path === undefined ? '/index' : path}))
         }
       }).catch(failResponse => {
-        if (failResponse.data.code === 400) {
+        /* if (failResponse.data.code === 400) {
           this.$router.replace({path: '/error'})
-        }
+        } */
       })
     }
   },

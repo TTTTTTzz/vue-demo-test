@@ -6,11 +6,15 @@ import Login from '@/components/Login' // import 组件文件名 from '组件文
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/hello',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: HelloWorld,
+      meta: {
+        requireAuth: true
+      }
     },
     {
       path: '/login',
