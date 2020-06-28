@@ -19,6 +19,7 @@ Vue.config.productionTip = false
 // element ui
 Vue.use(ElementUI)
 // todo 钩子函数？参数什么意思？
+// 设置拦截
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {
     if (store.state.user.username) {

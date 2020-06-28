@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1 id="welcome">Vue.js Demo</h1>
     <router-view/>
   </div>
 </template>
