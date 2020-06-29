@@ -1,5 +1,5 @@
 <template>
-  <el-menu :default-active="'/hello'"
+  <el-menu :default-active="'/home'"
            router
            mode="horizontal"
            background-color="white"
@@ -8,7 +8,7 @@
     <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name">
       {{ item.navItem }}
     </el-menu-item>
-    <a href="/userHome" style="position: absolute;padding-top: 20px;right: 10%">admin</a>
+    <a href="" style="position: absolute;padding-top: 20px;right: 10%">{{this.$store.state.user.username}}</a>
   </el-menu>
 </template>
 
@@ -18,10 +18,10 @@ export default {
   data () {
     return {
       navList: [
-        {name: '/hello', navItem: 'Home'},
-        {name: '/user', navItem: 'User Management'},
-        {name: '/order', navItem: 'Order Management'},
-        {name: '/staff', navItem: 'Staff Management'}
+        {name: '/home', navItem: 'Home'},
+        {name: '/home/user', navItem: 'User Management'},
+        {name: '/home/order', navItem: 'Order Management'},
+        {name: '/home/staff', navItem: 'Staff Management'}
       ]
     }
   }

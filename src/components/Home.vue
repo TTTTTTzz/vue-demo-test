@@ -2,16 +2,14 @@
   <div>
     <nav-test class="nav-menu"></nav-test>
     <router-view/>
-    <user-table></user-table>
   </div>
 </template>
 
 <script>
 import NavTest from './common/NavMenu'
-import UserTable from './management/UserTable'
 export default {
   name: 'Home',
-  components: {NavTest, UserTable}
+  components: {NavTest}
 }
 </script>
 

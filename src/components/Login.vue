@@ -32,7 +32,7 @@ export default {
           _this.$store.commit('login', _this.user)
           // todo the difference between _this and this? which they refer to?
           var path = this.$route.query.redirect
-          this.$router.replace(({path: path === '/' || path === undefined ? '/index' : path})) // todo 跳转到有内容的界面 '/hello'报错？
+          this.$router.replace(({path: path === '/' || path === undefined ? '/home' : path})) // todo 跳转到有内容的界面 '/hello'报错？
         }
       }).catch(failResponse => {
         /* if (failResponse.data.code === 400) {

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
-
+// 将username储存到local storage中
 export default new Vuex.Store({
   state: {
     user: {
