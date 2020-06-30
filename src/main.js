@@ -26,13 +26,15 @@ router.beforeEach((to, from, next) => {
       next()
     } else {
       next({
-        path: 'login'
+        path: 'login',
+        query: {redirect: to.fullPath}
       })
     }
   } else {
     next()
   }
-})
+}
+)
 
 // eslint-disable-next-line no-new
 new Vue({
@@ -42,6 +44,6 @@ new Vue({
   router,
   // store
   store,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })

@@ -19,9 +19,9 @@ export default {
     return {
       navList: [
         {name: '/home', navItem: 'Home'},
-        {name: '/home/user', navItem: 'User Management'},
-        {name: '/home/order', navItem: 'Order Management'},
-        {name: '/home/staff', navItem: 'Staff Management'}
+        {name: '/user', navItem: 'User Management'},
+        {name: '/order', navItem: 'Order Management'},
+        {name: '/staff', navItem: 'Staff Management'}
       ]
     }
   }

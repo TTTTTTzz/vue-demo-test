@@ -18,11 +18,11 @@ export default new Router({
       name: 'Home',
       component: Home,
       // Home不需要被访问，重定向到hello world
-      redirect: '/home/index',
+      redirect: '/index',
       // 配置父子路由关系 // todo?
       children: [
         {
-          path: 'index',
+          path: '/index',
           name: 'HelloWorld',
           component: HelloWorld,
           meta: {
@@ -30,7 +30,7 @@ export default new Router({
           }
         },
         {
-          path: 'user',
+          path: '/user',
           name: 'User',
           component: User,
           meta: {
@@ -38,7 +38,7 @@ export default new Router({
           }
         },
         {
-          path: 'order',
+          path: '/order',
           name: 'Order',
           component: Order,
           meta: {
@@ -46,7 +46,7 @@ export default new Router({
           }
         },
         {
-          path: 'staff',
+          path: '/staff',
           name: 'Staff',
           component: Staff,
           meta: {
@@ -57,13 +57,13 @@ export default new Router({
     },
     {
       path: '/login',
-      name: 'login',
+      name: 'Login',
       component: Login
     },
     {
       path: '/error',
       name: 'Error',
-      component: Error
+      component: Error // 保留字?
     }
   ]
 })
