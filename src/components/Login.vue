@@ -1,11 +1,16 @@
 <template>
-  <div>
-    用户名:<input type="text" v-model="loginForm.username" placeholder="请输入用户名"/>
-    <br><br>
-    密码： <input type="password" v-model="loginForm.password" placeholder="请输入密码"/>
-    <br><br>
-    <button v-on:click="login">登录</button>
-  </div>
+  <el-form class="login-container">
+    <h3 class="login_title">Welcome!🌎</h3>
+    <el-form-item>
+      <el-input type="text" v-model="loginForm.username" label="Username"/>
+    </el-form-item>
+    <el-form-item>
+      <el-input type="password" v-model="loginForm.password" label="Username"/>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" v-on:click="login">Login</el-button>
+    </el-form-item>
+  </el-form>
 </template>
 
 <script>
@@ -44,3 +49,23 @@ export default {
   }
 }
 </script>
+
+<style>
+  .login-container {
+    border-radius: 15px;
+    background-clip: padding-box;
+    margin: 90px auto;
+    width: 350px;
+    padding: 35px 35px 15px 35px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 25px #cac6c6;
+  }
+
+  .login_title {
+    margin: 0 auto 40px auto;
+    text-align: center;
+    color: #505458;
+  }
+
+</style>
