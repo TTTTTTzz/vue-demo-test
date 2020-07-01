@@ -18,8 +18,4 @@ export default {
     text-align: center;
     color: #2c3e50;
   }
-
-  #welcome {
-    color: #42b983;
-  }
 </style>

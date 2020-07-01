@@ -1,11 +1,11 @@
 <template>
   <el-form class="login-container">
     <h3 class="login_title">Welcome!🌎</h3>
-    <el-form-item>
-      <el-input type="text" v-model="loginForm.username" label="Username"/>
+    <el-form-item label="Username">
+      <el-input type="text" v-model="loginForm.username"/>
     </el-form-item>
-    <el-form-item>
-      <el-input type="password" v-model="loginForm.password" label="Username"/>
+    <el-form-item label="Password">
+      <el-input type="password" v-model="loginForm.password"/>
     </el-form-item>
     <el-form-item>
       <el-button type="primary" v-on:click="login">Login</el-button>
