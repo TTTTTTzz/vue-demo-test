@@ -38,7 +38,18 @@ export default {
       {
         id: '3',
         name: 'user3'
-      }]
+      }],
+      userList:[]
+    }
+  },
+  methods:{
+    getUserList(){
+      var _this = this
+      this.$axios.get('/user/all').then(successResponse=>{
+        if(successResponse.data.code === 200){
+          _this.userList = successResponse.data.list
+        }
+      })
     }
   }
 }
