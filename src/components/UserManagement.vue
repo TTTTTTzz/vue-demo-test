@@ -1,6 +1,6 @@
 <template>
   <el-table
-    :data="tableData"
+    :data="userList"
     stripe
     style="width: 50%;margin:auto;">
     <el-table-column
@@ -27,29 +27,20 @@ export default {
   name: 'User',
   data () {
     return {
-      tableData: [{
-        id: '1',
-        name: 'user1'
-      },
-      {
-        id: '2',
-        name: 'user2'
-      },
-      {
-        id: '3',
-        name: 'user3'
-      }],
-      userList:[]
+      userList: []
     }
   },
-  methods:{
-    getUserList(){
-      var _this = this
-      this.$axios.get('/user/all').then(successResponse=>{
-        if(successResponse.data.code === 200){
-          _this.userList = successResponse.data.list
-        }
-      })
+  // 钩子函数单独写
+  mounted: function () {
+    var _this = this
+    _this.info = 4
+    _this.getUserList()
+  },
+  methods: {
+    getUserList () {
+      this.$axios.get('/user/all').then(response => {
+        this.userList = response.data
+      }).catch(error => console.log(error))
     }
   }
 }
