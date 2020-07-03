@@ -2,20 +2,25 @@
   <el-table
     :data="userList"
     stripe
-    style="width: 50%;margin:auto;">
+    align="center"
+    style="width: 50%;margin: 20px auto auto;border: 1px solid #CCCCCC">
     <el-table-column
+      align="center"
       prop="id"
       label="id">
     </el-table-column>
     <el-table-column
+      align="center"
       prop="name"
       label="name">
     </el-table-column>
     <el-table-column
+      align="center"
       label="edit">
       <a><i class="el-icon-edit"/></a>
     </el-table-column>
     <el-table-column
+      align="center"
       label="delete">
       <template slot-scope="scope">
         <a href="#nowhere" v-on:click="deleteUser(scope.row.id)"><i class="el-icon-delete"/></a>
