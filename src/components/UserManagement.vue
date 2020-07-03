@@ -13,11 +13,13 @@
     </el-table-column>
     <el-table-column
       label="edit">
-      <a href=""><i class="el-icon-edit"/></a>
+      <a><i class="el-icon-edit"/></a>
     </el-table-column>
     <el-table-column
       label="delete">
-      <a href=""><i class="el-icon-delete"/></a>
+      <template slot-scope="scope">
+        <a href="#nowhere" v-on:click="deleteUser(scope.row.id)"><i class="el-icon-delete"/></a>
+      </template>
     </el-table-column>
   </el-table>
 </template>
@@ -41,6 +43,15 @@ export default {
       this.$axios.get('/user/all').then(response => {
         this.userList = response.data
       }).catch(error => console.log(error))
+    },
+    deleteUser (id) {
+      var url = '/user/' + id
+      this.$axios.delete(url).then(response => {
+        if (response.data.code === 200) {
+          alert('删除成功')
+          this.getUserList()
+        }
+      })
     }
   }
 }
