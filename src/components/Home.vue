@@ -7,19 +7,9 @@
 
 <script>
 import NavTest from './common/NavMenu'
-import User from './UserManagement'
 export default {
   name: 'Home',
-  components: {NavTest, User},
-  data () {
-    return {
-      test: 0
-    }
-  },
-  mounted: function () {
-    var _this = this
-    _this.test = 1
-  }
+  components: {NavTest}
 }
 </script>
 
