@@ -20,29 +20,33 @@
       <el-table-column
         align="center"
         label="edit">
-        <a><i class="el-icon-edit"/></a>
+        <template slot-scope="scope">
+          <a href="#" v-on:click="editClick(scope.row.id,scope.row.name)"><i class="el-icon-edit"/></a>
+        </template>
       </el-table-column>
       <el-table-column
         align="center"
         label="delete">
         <template slot-scope="scope">
-          <a href="#nowhere" v-on:click="deleteUser(scope.row.id)"><i class="el-icon-delete"/></a>
+          <a href="#" v-on:click="deleteUser(scope.row.id)"><i class="el-icon-delete"/></a>
         </template>
       </el-table-column>
     </el-table>
-    <div id="addTable">
+    <div id="form">
       <add-form></add-form>
+      <edit-form ref="editForm"></edit-form>
     </div>
   </div>
 </template>
 
 <script>
-import AddForm from './AddUserForm'
+import AddForm from './AddForm'
+import EditForm from './EditForm'
 // todo 调整add button 的位置 margin
 export default {
   name: 'User',
   components: {
-    AddForm
+    AddForm, EditForm
   },
   data () {
     return {
@@ -65,16 +69,19 @@ export default {
       var url = '/user/' + id
       this.$axios.delete(url).then(response => {
         if (response.data.code === 200) {
-          alert('删除成功')
+          this.$message({
+            type: 'success',
+            message: '删除成功'
+          })
           this.getUserList()
         }
       })
     },
-    addUser () {
-      this.$message({
-        message: 'test',
-        type: 'success'
-      })
+    editClick (id, name) {
+      var temp = {id: 0, name: ''}
+      temp.id = id
+      temp.name = name
+      this.$refs.editForm.edit(temp)
     }
   }
 }
@@ -84,7 +91,7 @@ export default {
 h1{
   color: #505458;
 }
-#addTable{
+#form{
   margin: 20px auto;
 }
 </style>
