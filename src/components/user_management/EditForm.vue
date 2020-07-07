@@ -25,7 +25,8 @@ export default {
       dialogFormVisible: false,
       userBean: {
         id: 0,
-        name: ''
+        name: '',
+        password: ''
       },
       formLabelWidth: '120px'
     }
@@ -47,7 +48,7 @@ export default {
       this.dialogFormVisible = true
     },
     onSubmit () {
-      var url = '/user/' + 13
+      var url = '/user/' + this.userBean.id
       this.$axios.put(url, this.userBean).then(response => {
         this.dialogFormVisible = false
         this.clear()
