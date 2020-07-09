@@ -32,11 +32,6 @@ export default {
     }
   },
   methods: {
-    getUserList () {
-      this.$axios.get('/user/all').then(response => {
-        this.userList = response.data
-      }).catch(error => console.log(error))
-    },
     clear () {
       this.userBean = {
         name: ''
@@ -52,6 +47,7 @@ export default {
       this.$axios.put(url, this.userBean).then(response => {
         this.dialogFormVisible = false
         this.clear()
+        this.$parent.getUserList()
       })
     }
   }

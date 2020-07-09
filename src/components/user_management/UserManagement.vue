@@ -34,7 +34,7 @@
     </el-table>
     <div id="form">
       <add-form></add-form>
-      <edit-form ref="editForm" :updatedUserList="userList"></edit-form>
+      <edit-form ref="editForm"></edit-form>
     </div>
   </div>
 </template>
