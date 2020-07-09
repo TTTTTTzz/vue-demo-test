@@ -51,6 +51,7 @@ export default {
       this.$axios.post('/user', this.userBean).then(response => {
         this.dialogFormVisible = false
         this.clear()
+        this.$parent.getUserList()
       })
     }
   }
