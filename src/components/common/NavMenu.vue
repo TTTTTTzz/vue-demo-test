@@ -1,5 +1,5 @@
 <template>
-  <el-menu :default-active="'/home'"
+  <el-menu :default-active="activeIndex"
            router
            mode="horizontal"
            background-color="white"
@@ -16,12 +16,18 @@ export default {
   name: 'NavTest',
   data () {
     return {
+      activeIndex: this.$route.path,
       navList: [
-        {name: '/home', navItem: 'Home'},
+        {name: '/index', navItem: 'Home'},
         {name: '/user', navItem: 'User Management'},
         {name: '/order', navItem: 'Order Management'},
         {name: '/staff', navItem: 'Staff Management'}
       ]
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      this.activeIndex = to.path
     }
   }
 }

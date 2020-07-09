@@ -21,20 +21,20 @@
         align="center"
         label="edit">
         <template slot-scope="scope">
-          <a href="#" v-on:click="editClick(scope.row.id,scope.row.name)"><i class="el-icon-edit"/></a>
+          <el-button type="text" v-on:click="editClick(scope.row.id,scope.row.name)"><i class="el-icon-edit"/></el-button>
         </template>
       </el-table-column>
       <el-table-column
         align="center"
         label="delete">
         <template slot-scope="scope">
-          <a href="#" v-on:click="deleteUser(scope.row.id)"><i class="el-icon-delete"/></a>
+          <el-button type="text" v-on:click="deleteUser(scope.row.id)"><i class="el-icon-delete"/></el-button>
         </template>
       </el-table-column>
     </el-table>
     <div id="form">
       <add-form></add-form>
-      <edit-form ref="editForm"></edit-form>
+      <edit-form ref="editForm" :updatedUserList="userList"></edit-form>
     </div>
   </div>
 </template>
@@ -42,7 +42,7 @@
 <script>
 import AddForm from './AddForm'
 import EditForm from './EditForm'
-// todo 调整add button 的位置 margin
+// todo 调整add button 的位置 margin ?
 export default {
   name: 'User',
   components: {
@@ -56,7 +56,6 @@ export default {
   // 钩子函数单独写
   mounted: function () {
     var _this = this
-    _this.info = 4
     _this.getUserList()
   },
   methods: {
@@ -78,7 +77,7 @@ export default {
       })
     },
     editClick (id, name) {
-      var temp = {id: 0, name: ''}
+      var temp = {id: 0, name: '', password: ''}
       temp.id = id
       temp.name = name
       this.$refs.editForm.edit(temp)
