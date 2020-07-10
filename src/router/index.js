@@ -6,6 +6,8 @@ import Login from '@/components/Login' // import 组件文件名 from '组件文
 import User from '@/components/user_management/UserManagement'
 import Order from '@/components/OrderManagement'
 import Staff from '@/components/StaffManagement'
+import Role from '@/components/role_management/RoleManagement'
+import Permission from '../components/permission_management/PermissionManagement'
 // 作为父页面
 import Home from '@/components/Home'
 Vue.use(Router)
@@ -33,6 +35,22 @@ export default new Router({
           path: '/user',
           name: 'User',
           component: User,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: '/role',
+          name: 'Role',
+          component: Role,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: '/permission',
+          name: 'Permission',
+          component: Permission,
           meta: {
             requireAuth: true
           }

@@ -20,8 +20,10 @@ export default {
       navList: [
         {name: '/index', navItem: 'Home'},
         {name: '/user', navItem: 'User Management'},
-        {name: '/order', navItem: 'Order Management'},
-        {name: '/staff', navItem: 'Staff Management'}
+        {name: '/role', navItem: 'Role Management'},
+        {name: '/permission', navItem: 'Permission Management'}
+        // {name: '/order', navItem: 'Order Management'},
+        // {name: '/staff', navItem: 'Staff Management'}
       ]
     }
   },
