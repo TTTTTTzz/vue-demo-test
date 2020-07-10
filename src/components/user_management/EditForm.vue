@@ -33,9 +33,7 @@ export default {
   },
   methods: {
     clear () {
-      this.userBean = {
-        name: ''
-      }
+      this.userBean.name = ''
     },
     edit (user) {
       this.userBean.id = user.id
