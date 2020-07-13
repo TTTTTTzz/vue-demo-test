@@ -19,6 +19,11 @@
       </el-table-column>
       <el-table-column
         align="center"
+        prop="role.name"
+        label="role">
+      </el-table-column>
+      <el-table-column
+        align="center"
         label="edit">
         <template slot-scope="scope">
           <el-button type="text" v-on:click="editClick(scope.row.id,scope.row.name)"><i class="el-icon-edit"/></el-button>
