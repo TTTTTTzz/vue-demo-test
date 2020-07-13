@@ -60,8 +60,7 @@ export default {
   },
   // 钩子函数单独写
   mounted: function () {
-    var _this = this
-    _this.getUserList()
+    this.getUserList()
   },
   methods: {
     getUserList () {
