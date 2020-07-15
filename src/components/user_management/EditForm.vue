@@ -26,7 +26,8 @@ export default {
       userBean: {
         id: 0,
         name: '',
-        password: ''
+        password: '',
+        role: {id: 0, name: '', desc: ''}
       },
       formLabelWidth: '120px'
     }

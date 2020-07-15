@@ -14,16 +14,6 @@
         <el-form-item label="Password" :label-width="formLabelWidth" prop="password">
           <el-input v-model="userBean.password" autocomplete="off" type="password"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-select v-model="userBean.role" placeholder="请选择">
-            <el-option
-              v-for="item in roleList"
-              :key="item.id"
-              :label="item.name"
-              :value="item">
-            </el-option>
-          </el-select>
-        </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="onSubmit">Submit</el-button>
@@ -41,25 +31,15 @@ export default {
       dialogFormVisible: false,
       userBean: {
         name: '',
-        password: '',
-        role: {id: 0, name: '', desc: ''}
+        password: ''
       },
-      roleList: [],
       formLabelWidth: '120px'
     }
-  },
-  mounted () {
-    this.getRoleList()
   },
   methods: {
     getUserList () {
       this.$axios.get('/user/all').then(response => {
         this.userList = response.data
-      }).catch(error => console.log(error))
-    },
-    getRoleList () {
-      this.$axios.get('/role/all').then(response => {
-        this.roleList = response.data
       }).catch(error => console.log(error))
     },
     clear () {
