@@ -1,6 +1,7 @@
 <template>
   <div>
-    <el-button @click="dialogFormVisible = true" type="success" plain><i class="el-icon-circle-plus-outline"/>&nbsp;&nbsp;Add New
+    <el-button @click="dialogFormVisible = true" type="success" plain><i class="el-icon-circle-plus-outline"/>&nbsp;&nbsp;Add
+      New
       User
     </el-button>
     <el-dialog
@@ -14,12 +15,12 @@
         <el-form-item label="Password" :label-width="formLabelWidth" prop="password">
           <el-input v-model="userBean.password" autocomplete="off" type="password"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-select v-model="userBean.role" placeholder="请选择">
+        <el-form-item label="Role" :label-width="formLabelWidth" prop="role">
+          <el-select v-model="roleName" placeholder="请选择" @change="getRoleByName">
             <el-option
               v-for="item in roleList"
-              :key="item.id"
-              :label="item.name"
+              :key="item"
+              :label="item"
               :value="item">
             </el-option>
           </el-select>
@@ -44,6 +45,7 @@ export default {
         password: '',
         role: {id: 0, name: '', desc: ''}
       },
+      roleName: '',
       roleList: [],
       formLabelWidth: '120px'
     }
@@ -56,6 +58,15 @@ export default {
       this.$axios.get('/user/all').then(response => {
         this.userList = response.data
       }).catch(error => console.log(error))
+    },
+    getRoleByName () {
+      let url = '/role/' + this.roleName
+      this.$axios.get(url).then(response => {
+        this.userBean.role = response.data
+        // this.userBean.rid.id = response.data.id
+        // this.userBean.rid.id = response.data.id
+        console.log(this.userBean.role)
+      })
     },
     getRoleList () {
       this.$axios.get('/role/all').then(response => {
