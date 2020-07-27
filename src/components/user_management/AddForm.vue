@@ -54,11 +54,11 @@ export default {
     this.getRoleList()
   },
   methods: {
-    getUserList () {
+    /* getUserList () {
       this.$axios.get('/user/all').then(response => {
         this.userList = response.data
       }).catch(error => console.log(error))
-    },
+    }, */
     getRoleByName () {
       let url = '/role/' + this.roleName
       this.$axios.get(url).then(response => {
@@ -69,13 +69,15 @@ export default {
       })
     },
     getRoleList () {
-      this.$axios.get('/role/all').then(response => {
+      this.$axios.get('/role/all-name').then(response => {
         this.roleList = response.data
       }).catch(error => console.log(error))
     },
     clear () {
       this.userBean = {
-        name: ''
+        name: '',
+        password: '',
+        role: {id: 0, name: '', desc: ''}
       }
     },
     onSubmit () {

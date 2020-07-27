@@ -47,7 +47,6 @@
 <script>
 import AddForm from './AddForm'
 import EditForm from './EditForm'
-// todo 调整add button 的位置 margin ?
 export default {
   name: 'User',
   components: {

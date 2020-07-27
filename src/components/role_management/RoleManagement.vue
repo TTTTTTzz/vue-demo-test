@@ -38,13 +38,18 @@
       </el-table-column>
     </el-table>
     <div id="form">
+      <add-form></add-form>
     </div>
   </div>
 </template>
 
 <script>
+import AddForm from './AddForm'
 export default {
   name: 'Role',
+  components: {
+    AddForm
+  },
   data () {
     return {
       roleList: []
@@ -66,5 +71,8 @@ export default {
 <style scoped>
   h1{
     color: #505458;
+  }
+  #form{
+    margin: 20px auto;
   }
 </style>
