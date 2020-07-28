@@ -21,7 +21,7 @@ export default new Router({
       component: Home,
       // Home不需要被访问，重定向到hello world
       redirect: '/index',
-      // 配置父子路由关系 // todo?
+      // 配置父子路由关系
       children: [
         {
           path: '/index',
