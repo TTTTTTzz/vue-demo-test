@@ -23,12 +23,7 @@ export default {
   data () {
     return {
       dialogFormVisible: false,
-      userBean: {
-        id: 0,
-        name: '',
-        password: '',
-        role: {id: 0, name: '', desc: ''}
-      },
+      userBean: '',
       formLabelWidth: '120px'
     }
   },
@@ -37,8 +32,9 @@ export default {
       this.userBean.name = ''
     },
     edit (user) {
-      this.userBean.id = user.id
-      this.userBean.name = user.name
+      /* this.userBean.id = user.id
+      this.userBean.name = user.name */
+      this.userBean = user
       this.dialogFormVisible = true
     },
     onSubmit () {

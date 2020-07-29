@@ -26,7 +26,7 @@
         align="center"
         label="edit">
         <template slot-scope="scope">
-          <el-button type="text" v-on:click="editClick(scope.row.id,scope.row.name)"><i class="el-icon-edit"/></el-button>
+          <el-button type="text" v-on:click="editClick(scope.row.id,scope.row.name,scope.row.role)"><i class="el-icon-edit"/></el-button>
         </template>
       </el-table-column>
       <el-table-column
@@ -79,10 +79,12 @@ export default {
         }
       })
     },
-    editClick (id, name) {
-      var temp = {id: 0, name: '', password: ''}
+    editClick (id, name, role) {
+      var temp = {id: 0, name: '', password: '', role: ''}
       temp.id = id
       temp.name = name
+      temp.role = role
+      // 父组件调用子组件的方法
       this.$refs.editForm.edit(temp)
     }
   }
@@ -90,10 +92,11 @@ export default {
 </script>
 
 <style scoped>
-h1{
+h1 {
   color: #505458;
 }
-#form{
+
+#form {
   margin: 20px auto;
 }
 </style>
