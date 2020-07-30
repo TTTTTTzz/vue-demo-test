@@ -26,7 +26,7 @@
         align="center"
         label="edit">
         <template slot-scope="scope">
-          <el-button type="text" v-on:click="editClick(scope.row.id,scope.row.name,scope.row.description)"><i class="el-icon-edit"/></el-button>
+          <el-button type="text" v-on:click="editClick(scope.row.id,scope.row.name,scope.row.desc)"><i class="el-icon-edit"/></el-button>
         </template>
       </el-table-column>
       <el-table-column
@@ -39,7 +39,7 @@
     </el-table>
     <div id="form">
       <add-form></add-form>
-      <edit-form ref="editForm"></edit-form>
+      <edit-form ref="roleEditForm"></edit-form>
     </div>
   </div>
 </template>
@@ -79,13 +79,13 @@ export default {
         }
       })
     },
-    editClick (id, name, description) {
-      var temp = {id: 0, name: '', description: ''}
+    editClick (id, name, desc) {
+      var temp = {id: 0, name: '', desc: ''}
       temp.id = id
       temp.name = name
-      temp.description = description
+      temp.desc = desc
       // 父组件调用子组件的方法
-      this.$refs.editForm.edit(temp)
+      this.$refs.roleEditForm.edit(temp)
     }
   }
 }

@@ -29,7 +29,7 @@ export default {
       roleBean: {
         id: 0,
         name: '',
-        description: ''
+        desc: ''
       },
       formLabelWidth: '120px'
     }
@@ -37,17 +37,18 @@ export default {
   methods: {
     clear () {
       this.roleBean.name = ''
-      this.roleBean.description = ''
+      this.roleBean.desc = ''
     },
     edit (role) {
-      this.roleBean.id = role.id
+      /* this.roleBean.id = role.id
       this.roleBean.name = role.name
-      this.roleBean.description = role.description
+      this.roleBean.desc = role.desc */
+      this.roleBean = role
       // this.roleBean = role
       this.dialogFormVisible = true
     },
     onSubmit () {
-      var url = '/user/' + this.roleBean.id
+      var url = '/role/' + this.roleBean.id
       this.$axios.put(url, this.roleBean).then(response => {
         this.dialogFormVisible = false
         this.clear()
