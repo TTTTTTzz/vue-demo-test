@@ -59,7 +59,7 @@ export default {
         this.userList = response.data
       }).catch(error => console.log(error))
     }, */
-    getRoleByName () {
+    getRoleByName () { // todo
       let url = '/role/' + this.roleName
       this.$axios.get(url).then(response => {
         this.userBean.role = response.data
